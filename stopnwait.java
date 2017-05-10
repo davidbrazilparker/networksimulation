@@ -3,7 +3,7 @@ public class stopnwait
 {
     private int frameSize;
 
-    public stopnwait(int frameSize)
+    public stopnwait(int packets, int frameSize)
     {
         this.frameSize = frameSize;
     }
@@ -16,5 +16,13 @@ public class stopnwait
     public void setFrameSize(int frameSize)
     {
         this.frameSize = frameSize;
+    }
+
+    public int sendFrames(network someNetwork, int time){
+        int bandwidthBPMS = someNetwork.getBandwidth();
+        for(int i = this.getFrameSize(); i>0; i-=bandwidthBPMS){
+            time++;
+        }
+        return time;
     }
 }
