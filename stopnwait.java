@@ -1,16 +1,20 @@
 /* Stop and Wait  */
-public class stopnwait {
+public class stopnwait
+{
     private int frameSize;
 
-    public stopnwait(int frameSize){
+    public stopnwait(int frameSize)
+    {
         this.frameSize = frameSize;
     }
 
-    public int getFrameSize(){
+    public int getFrameSize()
+    {
         return this.frameSize;
     }
 
-    public void setFrameSize(int frameSize){
+    public void setFrameSize(int frameSize)
+    {
         this.frameSize = frameSize;
     }
 }
