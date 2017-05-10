@@ -57,12 +57,18 @@ public class stopnwait
 
     public void multipleFrames(network someNetwork, int time, int frames){
         int frameNum = 0;
+        int sent = 0;
+        int ack = 0;
+        int totalTime = time;
         while(frameNum < frames){
-            int sent = sendFrames(someNetwork, time);
-            System.out.println("Frame " + frameNum + " sent after " + sent);
-            int ack = waitForAck(someNetwork, time);
+            sent = sendFrames(someNetwork, time);
+            System.out.println("Frame " + frameNum + " sent after " + totalTime);
+            totalTime += sent;
+
+            ack = waitForAck(someNetwork, time);
+            totalTime += ack;
             if(ack != 0){
-                System.out.println("ACK received for frame " + frameNum + " after " + ack);
+                System.out.println("ACK received for frame " + frameNum + " after " + totalTime);
                 frameNum++;
             }
         }
