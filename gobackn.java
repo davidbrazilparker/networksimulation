@@ -38,15 +38,14 @@ public class gobackn
 
         for(int i = 0; i < windowSize; i++)
         {
-
             for(int j = this.getFrameSize(); j>0; j-=bandwidthBPMS)
             {
                 time++;
             }
 
-            System.out.println("Frame " + i + " has been sent after " + time + " ms!");
+            System.out.println("Frame " + i + " has been sent!");
+            System.out.println("Time: " + time);
         }
-
     }
 
     public void waitForAck(network someNetwork)
@@ -64,8 +63,10 @@ public class gobackn
             }
 
             time = ackSendTime + (int) physicalDelay;
-            System.out.println("ACK for Frame " + i + " has been sent after " + time + " ms!");
+            System.out.println("ACK for Frame " + i + " has been sent!");
+            System.out.println("Time: " + time);
         }
 
     }
-}
+
+}//End Class

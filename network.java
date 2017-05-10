@@ -14,19 +14,23 @@ public class network
         this.bandwidth = bandwidth; //Bandwidth is measured in kbps
     }
 
-    public double getHeight() {
+    public double getHeight()
+    {
         return this.height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(int height)
+    {
         this.height = height;
     }
 
-    public int getBandwidth() {
+    public int getBandwidth()
+    {
         return this.bandwidth;
     }
 
-    public void setBandwidth(int bandwidth) {
+    public void setBandwidth(int bandwidth)
+    {
         this.bandwidth = bandwidth;
     }
 

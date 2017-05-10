@@ -30,7 +30,8 @@ public class stopnwait
     public int sendFrames(network someNetwork, int time)
     {
         int bandwidthBPMS = someNetwork.getBandwidth();
-        for(int i = this.getFrameSize(); i>0; i-=bandwidthBPMS){
+        for(int i = this.getFrameSize(); i>0; i-=bandwidthBPMS)
+        {
             time++;
         }
         return time;
