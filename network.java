@@ -2,7 +2,7 @@
 
 public class network {
 
-    public static final double speedOfLight = 300000.0;
+    public final double speedOfLight = 300000.0;
     private double height;
     private int bandwidth;
     private int totalTime;

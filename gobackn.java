@@ -29,4 +29,12 @@ public class gobackn
     {
         this.bitSeqNum = bitSeqNum;
     }
+
+    public int sendFrames(network someNetwork, int time){
+
+    }
+
+    public int waitForAck(network someNetwork, int time){
+        
+    }
 }
