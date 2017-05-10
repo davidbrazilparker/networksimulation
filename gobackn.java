@@ -23,6 +23,4 @@ public class gobackn {
     public void setBitSeqNum(int bitSeqNum){
         this.bitSeqNum = bitSeqNum;
     }
-
-
 }

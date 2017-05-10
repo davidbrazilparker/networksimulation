@@ -2,16 +2,17 @@
 
 public class network {
 
-    public static final int speedOfLight = 300000;
-    private int height;
+    public static final double speedOfLight = 300000.0;
+    private double height;
     private int bandwidth;
+    private int totalTime;
 
-    public network(int height, int bandwidth){
-        this.height = height; //Height is measured in km
+    public network(double height, int bandwidth){
+        this.height = 4.0 * height; //Height is measured in km
         this.bandwidth = bandwidth; //Bandwidth is measured in kbps
     }
 
-    public int getHeight(){
+    public double getHeight(){
         return this.height;
     }
 
@@ -27,6 +28,12 @@ public class network {
         this.bandwidth = bandwidth;
     }
 
+    public int run(int frameSize, int time){
+        time = this.sendFrames(frameSize, time);
+        time = this.waitForAck(frameSize, time);
+        return time;
+    }
+
     public int sendFrames(int frameSize, int time){
         int bandwidthBPMS = this.getBandwidth();
         System.out.println("Sending frames...");
@@ -34,6 +41,18 @@ public class network {
             time++;
         }
         System.out.println("Finished sending frames!");
+        return time;
+
+    }
+
+    public int waitForAck(int frameSize, int time){
+        int bandwidthBPMS = this.getBandwidth();
+        double physicalDelay = (this.height/this.speedOfLight) * 1000;
+        int ackSendTime = 0;
+        for(int i = frameSize; i>0; i-=bandwidth){
+            ackSendTime++;
+        }
+        time = ackSendTime + (int) physicalDelay;
         return time;
     }
 }
