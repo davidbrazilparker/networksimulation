@@ -1,23 +1,25 @@
 /* Go Back N  */
+
 public class gobackn
 {
-    private int frameSize;
+
+    private int windowSize;
     private int bitSeqNum;
 
-    public gobackn(int frameSize, int bitSeqNum)
+    public gobackn(int windowSize, int bitSeqNum)
     {
-        this.frameSize = frameSize;
+        this.windowSize = windowSize;
         this.bitSeqNum = bitSeqNum;
     }
 
-    public int getFrameSize()
+    public int getWindowSize()
     {
-        return this.frameSize;
+        return this.windowSize;
     }
 
-    public void setFrameSize(int frameSize)
+    public void setWindowSize(int frameSize)
     {
-        this.frameSize = frameSize;
+        this.windowSize = frameSize;
     }
 
     public int getBitSeqNum()
@@ -30,11 +32,13 @@ public class gobackn
         this.bitSeqNum = bitSeqNum;
     }
 
-    public int sendFrames(network someNetwork, int time){
-
+    public int sendFrames(network someNetwork, int time)
+    {
+        return 1;
     }
 
-    public int waitForAck(network someNetwork, int time){
-        
+    public int waitForAck(network someNetwork, int time)
+    {
+        return 1;
     }
 }
