@@ -2,7 +2,7 @@
 
 public class network {
 
-    public static final double speedOfLight = 300000.0;
+    public final double speedOfLight = 300000.0;
     private double height;
     private int bandwidth;
     private int totalTime;
@@ -28,7 +28,7 @@ public class network {
         this.bandwidth = bandwidth;
     }
 
-    public int run(int frameSize, int time) {
+    public int run(int packets, int frameSize, int time) {
         time = this.sendFrames(frameSize, time);
         time = this.waitForAck(frameSize, time);
         return time;
@@ -49,7 +49,7 @@ public class network {
 
     public int waitForAck(int frameSize, int time) {
         int bandwidthBPMS = this.getBandwidth();
-        double physicalDelay = (this.height/this.speedOfLight) * 1000;
+        double physicalDelay = (this.height/this.speedOfLight) * 1000.0;
         int ackSendTime = 0;
         for(int i = frameSize; i>0; i-=bandwidth) {
             ackSendTime++;
@@ -57,5 +57,12 @@ public class network {
         time = ackSendTime + (int) physicalDelay;
         return time;
     }
+
+    /*public int testRun(int packets, int frameSize, int time) {
+        int completed = new int[packets];
+        for(int i = 0; i < packets; i++){
+            completed[i] = time;
+        }
+    }*/
 
 }//End Class
