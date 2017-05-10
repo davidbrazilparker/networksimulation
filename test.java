@@ -1,7 +1,9 @@
-public class test {
+public class test
+{
     
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         stopnwait simpleProtocol4 = new stopnwait(2400);
         network simpleNetwork = new network(40000, 56);
         int currentTime = 0;
