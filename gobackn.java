@@ -1,15 +1,24 @@
 /* Go Back N  */
-
 public class gobackn
 {
 
+    private int frameSize;
     private int windowSize;
-    private int bitSeqNum;
 
-    public gobackn(int windowSize, int bitSeqNum)
+    public gobackn(int windowSize, int frameSize)
     {
+        this.frameSize = frameSize;
         this.windowSize = windowSize;
-        this.bitSeqNum = bitSeqNum;
+    }
+
+    public int getFrameSize()
+    {
+        return this.frameSize;
+    }
+
+    public void setFrameSize(int frameSize)
+    {
+        this.frameSize = frameSize;
     }
 
     public int getWindowSize()
@@ -17,28 +26,46 @@ public class gobackn
         return this.windowSize;
     }
 
-    public void setWindowSize(int frameSize)
+    public void setWindowSize(int windowSize)
     {
-        this.windowSize = frameSize;
+        this.windowSize = windowSize;
     }
 
-    public int getBitSeqNum()
+    public void sendFrames(network someNetwork)
     {
-        return this.bitSeqNum;
+        int time = 0;
+        int bandwidthBPMS = someNetwork.getBandwidth();
+
+        for(int i = 0; i < windowSize; i++)
+        {
+
+            for(int j = this.getFrameSize(); j>0; j-=bandwidthBPMS)
+            {
+                time++;
+            }
+
+            System.out.println("Frame " + i + " has been sent after " + time + " ms!");
+        }
+
     }
 
-    public void setBitSeqNum(int bitSeqNum)
+    public void waitForAck(network someNetwork)
     {
-        this.bitSeqNum = bitSeqNum;
-    }
+        int time = 0;
+        int bandwidthBPMS = someNetwork.getBandwidth();
+        double physicalDelay = (someNetwork.getHeight()/someNetwork.speedOfLight) * 1000.0;
+        int ackSendTime = 0;
 
-    public int sendFrames(network someNetwork, int time)
-    {
-        return 1;
-    }
+        for(int i = 0; i < windowSize; i++)
+        {
+            for(int j = this.getFrameSize(); j>0; j-=bandwidthBPMS)
+            {
+                ackSendTime++;
+            }
 
-    public int waitForAck(network someNetwork, int time)
-    {
-        return 1;
+            time = ackSendTime + (int) physicalDelay;
+            System.out.println("ACK for Frame " + i + " has been sent after " + time + " ms!");
+        }
+
     }
 }
