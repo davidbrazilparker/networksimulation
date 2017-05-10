@@ -1,4 +1,6 @@
-
+<<<<<<< HEAD
+public class test {    
+    public static void main(String[] args) {
 public class test {
     public static void main(String[] args) {
         stopnwait simpleProtocol4 = new stopnwait(2400);
