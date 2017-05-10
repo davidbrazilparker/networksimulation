@@ -12,7 +12,7 @@ public class network {
         this.bandwidth = bandwidth; //Bandwidth is measured in kbps
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return this.height;
     }
 
