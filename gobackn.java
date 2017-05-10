@@ -1,9 +1,9 @@
 /* Go Back N  */
-public class protocol5 {
+public class gobackn {
     private int frameSize;
     private int bitSeqNum;
 
-    public protocol5(int frameSize, int bitSeqNum){
+    public gobackn(int frameSize, int bitSeqNum){
         this.frameSize = frameSize;
         this.bitSeqNum = bitSeqNum;
     }
